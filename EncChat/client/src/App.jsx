@@ -46,7 +46,7 @@ const ChatApp = () => {
     // prevent double connections
     if (socketRef.current && socketRef.current.connected) return;
 
-    const newSocket = io('http://localhost:3001', {
+    const newSocket = io('https://chatapp-server-4-d9ve.onrender.com', {
       query: { username: username.trim() }
     });
 

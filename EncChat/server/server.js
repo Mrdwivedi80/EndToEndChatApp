@@ -14,7 +14,7 @@ const allowedOrigins = process.env.CLIENT_ORIGIN
   : [
       'http://localhost:5173', // Vite dev server
       'http://localhost:3000',
-      "https://chatapp-client-sage.vercel.app/" // alternate dev origin
+      "https://chatapp-client-sage.vercel.app" // alternate dev origin
     ];
 
 app.use(

@@ -13,8 +13,7 @@ const allowedOrigins = process.env.CLIENT_ORIGIN
   ? process.env.CLIENT_ORIGIN.split(',')
   : [
       'http://localhost:5173', // Vite dev server
-      'http://localhost:3000',
-      "https://chatapp-client-sage.vercel.app" // alternate dev origin
+      "https://endtoendchatapp-1.onrender.com" // alternate dev origin
     ];
 
 app.use(

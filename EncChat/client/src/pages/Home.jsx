@@ -10,9 +10,10 @@ import Footer from '../components/Footer';
 */
 const Home = () => {
   const handleEnterChat = () => {
-    // integration point: replace with router push or open chat modal
-    // Example: useHistory().push('/chat') or window.location.href = '/chat?username=guest'
-    window.location.href = '/chat?username=guest';
+    // Use History API so navigation is client-side and doesn't cause a full reload
+    const path = '/chat?username=guest';
+    window.history.pushState({}, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
   };
 
   return (

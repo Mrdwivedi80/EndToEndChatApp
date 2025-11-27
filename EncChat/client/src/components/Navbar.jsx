@@ -6,6 +6,12 @@ import React from 'react';
   - Prop: onEnterChat (optional) => handler to open chat / route to chat page
 */
 const Navbar = ({ onEnterChat }) => {
+  // Navigate client-side without reloading so SPA routing works
+  const navigateToChat = () => {
+    const path = '/chat?username=guest';
+    window.history.pushState({}, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
   return (
     <header className="w-full fixed top-0 left-0 z-30">
       <nav className="backdrop-blur-sm bg-white/60 dark:bg-slate-900/50 border-b border-white/10 dark:border-slate-700">
@@ -31,7 +37,7 @@ const Navbar = ({ onEnterChat }) => {
                 onClick={() => {
                   // integration point: either call onEnterChat or handle navigation to /chat
                   if (onEnterChat) return onEnterChat();
-                  window.location.href = '/chat?username=guest';
+                  navigateToChat();
                 }}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-sm font-medium shadow hover:scale-[1.02] transform transition duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-blue-400"
                 aria-label="Start Chatting"
